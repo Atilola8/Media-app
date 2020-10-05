@@ -1,36 +1,62 @@
+let bx;
+let by;
+let boxSize = 75;
+let overBox = false;
+let locked = false;
+let xOffset = 0.0;
+let yOffset = 0.0;
+
 function setup() {
-  createCanvas(800,600);  
-  noStroke();
+  createCanvas(800, 600);
+  bx = width / 2.0;
+  by = height / 2.0;
+  rectMode(RADIUS);
+  strokeWeight(2);
 }
 
 function draw() {
-  backChange(mouseX);
-  //all three of these for loops make random circles of either red, green, or blue
-  for(i = 0; i < 200; i++){
-    fill(0, 0, 255);
-    circle(Math.random()*200+400,Math.random()*600,30);
+  background(0, 50, 50);
+
+  // Test if the cursor is over the box
+  if (
+    mouseX > bx - boxSize &&
+    mouseX < bx + boxSize &&
+    mouseY > by - boxSize &&
+    mouseY < by + boxSize
+  ) {
+    overBox = true;
+    if (!locked) {
+      stroke(255);
+      fill("#c70039");
+    }
+  } else {
+    stroke(156, 39, 176);
+    fill("#cd0a0a");
+    overBox = false;
   }
-  for(i = 0; i < 200; i++){
-    fill(0, 255, 0);
-    circle(Math.random()*200+200,Math.random()*600,30);
+
+  // Draw the box
+  rect(bx, by, boxSize, boxSize);
+}
+
+function mousePressed() {
+  if (overBox) {
+    locked = true;
+    fill("#ff414d");
+  } else {
+    locked = false;
   }
-  for(i = 0; i < 200; i++){
-    fill(255, 0, 0);
-    circle(Math.random()*200,Math.random()*600,30);
+  xOffset = mouseX - bx;
+  yOffset = mouseY - by;
+}
+
+function mouseDragged() {
+  if (locked) {
+    bx = mouseX - xOffset;
+    by = mouseY - yOffset;
   }
 }
-//this function changes the background color which reveals different shapes
-function backChange(x){
-  //reigon 1
-  if (x < 200){
-    background(255, 0, 0);
-  }
-  //reigon 2
-  else if ((x > 199) && (x < 400)){
-    background(0, 255, 0);
-  }
-  //reigon 3
-  else{
-    background(0, 0, 255)
-  }
+
+function mouseReleased() {
+  locked = false;
 }
