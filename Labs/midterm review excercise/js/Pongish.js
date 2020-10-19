@@ -3,20 +3,19 @@ var xBallChange = 5;
 var yBallChange = 5;
 var xBall = Math.floor(Math.random() * 300) + 50;
 var yBall = 50;
-var diameter = 50;
 var xPaddle = 380;
-var yPaddle;
+var yPaddle = 300;
 var paddleWidth = 20;
 var paddleHeight = 100;
-var started = false;
+
 //creates the background canvas we are working on and it can only work once.
 function setup() {
   createCanvas(800, 600);
 }
-function collideRect(xBall,yBall,xPaddle,yPaddle,rectW, rectH) {
-  if(xBall + 50 > xPaddle && xBall + 50 < xPaddle + rectW) {
+function collideRect(CircleX,CircleY,RectX,RectY,rectW, rectH) {
+  if(CircleX + 50 > RectX && CircleX + 50 < RectX + rectW) {
 
-    if(yBall + 50 > yPaddle && yBall + 50 < yPaddle + rectH) {
+    if(CircleY + 50 > RectY && CircleY+ 50 < RectY + rectH) {
       return true;
           
     }
@@ -43,11 +42,7 @@ function draw() {
   if (yBall < 50 / 2 || yBall > 600 - 50) {
     yBallChange *= -1;
   }
-  if (!started) {
-    xPaddle = 800 / 2;
-    yPaddle = 600 - 300;
-    started = true;
-  }
+  
   fill(0, 255, 255);
   noStroke();
   rect(760, yPaddle, 20, 100);
