@@ -6,12 +6,23 @@ var yBall = 50;
 var diameter = 50;
 var xPaddle = 380;
 var yPaddle;
-var paddleWidth = 100;
-var paddleHeight = 25;
+var paddleWidth = 20;
+var paddleHeight = 100;
 var started = false;
 //creates the background canvas we are working on and it can only work once.
 function setup() {
   createCanvas(800, 600);
+}
+function collideRect(xBall,yBall,xPaddle,yPaddle,rectW, rectH) {
+  if(xBall + 50 > xPaddle && xBall + 50 < xPaddle + rectW) {
+
+    if(yBall + 50 > yPaddle && yBall + 50 < yPaddle + rectH) {
+      return true;
+          
+    }
+
+}
+return false; 
 }
 //where the whole codes runs and is allowed to keep running.
 function draw() {
@@ -35,16 +46,21 @@ function draw() {
   if (!started) {
     xPaddle = 800 / 2;
     yPaddle = 600 - 300;
-    started = false;
+    started = true;
   }
   fill(0, 255, 255);
   noStroke();
   rect(760, yPaddle, 20, 100);
   //making the paddle move up and down
   if (keyIsDown(UP_ARROW)) {
-    xPaddle -= 50;
+    yPaddle -= 10;
   }
   if (keyIsDown(DOWN_ARROW)) {
-    xPaddle -= 50;
+    yPaddle += 10;
   }
+if (collideRect(xBall,yBall,xPaddle,yPaddle,20,100)){
+  yBallChange *= -1;
 }
+
+}
+
