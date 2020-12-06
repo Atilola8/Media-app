@@ -4,10 +4,168 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+  background-color: black;
+  text-align: center;
+}
+#speak {
+  color: #555;
+}
+
+#colorDiv{
+  height: 300px;
+  width: 590px;
+  background-color: black;
+  margin: auto;
+}
+
+#btnOne {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #FF0000;
+  width: 187px;
+}
+
+#btnTwo {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #0000FF;
+  width: 187px;
+}
+#btnThree {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #00FF00;
+  width: 187px;
+}
+#btnFour {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #FF0000;
+  width: 187px;
+}
+#btnFive {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #0000FF;
+  width: 187px;
+}
+#btnSix {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #00FF00;
+  width: 187px;
+}
+
+#btnSeven {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #FF0000;
+    width: 207px;
+}
+
+#btnEight {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #0000FF;
+    width: 207px;
+}
+
+#btnNine {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #00FF00;
+    width: 207px;
+
+}
+
+#buttons {
+    width: 600px;
+    padding: 10px;
+    margin: auto;
+    border: 5px solid black;
+}
+
+#wholeBox {
+    width: 700px;
+    height: auto;
+    padding: 10px;
+    border: 10px solid red;
+    margin: auto;
+    background-color: white;
+}
+    </style>
     <title>Document</title>
   </head>
   <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+    <div id = "wholeBox">
+      <h1> Color Mixer </h1>
+    <div id="colorDiv"></div>
+    <br>
+    <div id = "rgbCode"></div>
+      <br>
+      <br>
+    <div id = "buttons">
+        <button id="btnOne" value = "1">Add 1 to red</button>
+        <button id="btnFour" value = "5">add 5 to red</button>
+        <button id="btnSeven" value = "10">add 10 to red</button>
+          <br>
+        <button id="btnTwo" value = "1">add 1 to blue</button>
+        <button id="btnFive" value = "5">add 5 to blue</button>
+        <button id="btnEight" value = "10">add 10 to blue</button>
+          <br>
+        <button id="btnThree" value = "1">add 1 to green</button>
+        <button id="btnSix" value = "5">add 5 to green</button>
+        <button id="btnNine" value = "10">add 10 to green</button>
+    </div>
+    </div>
+    
     <script src="js/colormixer.js"></script>
   </body>
 </html>
